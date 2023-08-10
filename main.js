@@ -1,70 +1,95 @@
 // Inicio //
 
-alert('Esta pagina es para mayores de edad')
+alert('Esta pagina es para mayores de edad');
 
 let edad = parseInt(prompt("Ingrese su edad"));
 
-while (edad >= 18){
+if (edad >= 18) {
+alert('Puede Acceder')
+} else {
+    alert('Usted no puede Acceder')
+}
 
-    alert('Puede Acceder')
 
-    // Operaciones //
-    const suma = (a, b) => a + b;
-    const resta = (a, b) => a - b;
-    const iva = (x) => x * 0.21;
-    const multiplicacion = (a,b) => a*b; 
+// Operaciones //
+const suma = (a, b) => a + b;
+const resta = (a, b) => a - b;
+const iva = (x) => x * 0.21;
+const multiplicacion = (a,b) => a*b; 
 
-    // Variables // 
+// Productos // 
 
-    let precioProducto = prompt('Ingrese El Precio Del Producto');
-    let descuento = 0;
+class Producto {
+    constructor (info) {
+        this.nombre = info.nombre; 
+        this.precio = info.precio;
+    }
+}
+
+const producto1 = new Producto({
+    nombre: "computadora",
+    precio: 100,
+})
+
+const producto2 = new Producto({
+    nombre: "television",
+    precio: 50,
+})
+
+const producto3 = new Producto({
+    nombre: "celular",
+    precio: 40,
+})
+
+const producto4 = new Producto({
+    nombre: "consola",
+    precio: 100,
+})
+
+// Array de Productos // 
+
+const productos = []; 
+
+productos.push(producto1,producto2,producto3,producto4)
+
+
+// Carrito // 
+const carrito = []
+
+
+
+
+
+
+
+
+
+// Variables de Precio // 
+
+let precioCarrito = 0;
+let descuento = 0;
     
 
-    // Tiene Descuento? //
+// Tiene Descuento? //
 
-    let tieneDescuento = prompt('Tiene Descuento?');
+let tieneDescuento = prompt('Tiene Descuento?');
 
-    if (tieneDescuento == 'Si'){
-    descuento = prompt('De cuanto?')
-    } else {
-        alert('Okey!')
-    }
-
-    // Unidades // 
-
-    let unidades = parseInt(prompt('Cuantas unidades quiere?'))
-
-    // Resultado // 
-
-    var precioFinal = multiplicacion(suma(resta(precioProducto,descuento),iva(precioProducto)),unidades);
-
-    alert(`El monto a pagar es ${precioFinal}`)
-
-        break;
-    }
-while (edad <18) {
-    alert('Regrese cuando sea mayor')
+if (tieneDescuento == 'Si'){
+descuento = prompt('De cuanto?')
+} else {
+    alert('Okey!')
 }
 
-/* Consulta
 
-Yo me habia basado en la idea que habia mostrado el profe en clase al crear funciones para cada operacion matematica y luego al calcular el precio simplemente llamarlas y pasarle los parametros, pero el uso funciones de flecha y yo aca intente usar funciones comunes. No se si tuve un error con las funciones o es que en este caso si o si se usan funciones de flecha. 
+// Resultado // 
 
-function suma(numero1,numero2) {
-numero1 + numero2
-}
+var precioFinal = multiplicacion(suma(resta(precioCarrito,descuento),iva(precioProducto)));
 
-function iva(numeroX) {
-numeroX * 0.21;
-}
+alert(`El monto a pagar es ${precioFinal}`)
 
-function resta(numero1,numero2) {
-numero1 - numero2
-}
 
-function multiplicacion(numero1,numero2) {
-    numero1 * numero2
-} 
-*/
+    
+
+
 
 
